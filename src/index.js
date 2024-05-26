@@ -1,5 +1,6 @@
-const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
-const fetch = isBrowser ? /* istanbul ignore next */window.fetch : require('../src/fetch')
+// const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
+// const fetch = isBrowser ? /* istanbul ignore next */window.fetch : require('../src/fetch')
+const fetch = window.fetch;
 
 class PublicGoogleSheetsParser {
   constructor (spreadsheetId, option) {
@@ -98,7 +99,7 @@ class PublicGoogleSheetsParser {
 }
 
 /* istanbul ignore next */
-if (isBrowser && typeof module === 'undefined') {
+if (typeof module === 'undefined') {
   window.PublicGoogleSheetsParser = PublicGoogleSheetsParser
 } else {
   module.exports = PublicGoogleSheetsParser
